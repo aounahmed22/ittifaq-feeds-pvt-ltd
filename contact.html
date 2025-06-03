@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Ittifaq Feeds - Contact Us</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-red: #ff0000;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* Navbar */
+.navbar-custom {
+    background-color: #000; /* Dark background */
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .btn-get-in-touch {
+    color: #fff; /* White text for better contrast */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .btn-get-in-touch:hover {
+    color: var(--primary-red); /* Change to primary red on hover */
+}
+
+.navbar-custom .nav-link.active {
+    color: var(--primary-red); /* Active link color */
+}
+
+
+    /* Buttons */
+    .btn-primary-custom,
+    .btn-secondary-custom {
+      border-radius: 25px;
+      padding: 0.75rem 1.5rem;
+      font-weight: bold;
+      display: inline-block;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn-primary-custom {
+      background-color: var(--primary-red);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: #cc0000;
+      color: white;
+    }
+
+    .btn-secondary-custom {
+      background-color: transparent;
+      border: 1px solid black;
+      color: black;
+    }
+
+    .btn-secondary-custom:hover {
+      background-color: var(--primary-red);
+      color: white;
+      border-color: var(--primary-red);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      max-width: 600px;
+      margin: 4rem auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-section h2 {
+      color: var(--primary-red);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+   <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom px-4 position-relative">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="index.html">
+        <span style="color: var(--primary-red);">ITTIFAQ</span><span class="text-white"> FEEDS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavCentered">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavCentered">
+        <ul class="navbar-nav navbar-nav-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <a href="contact.html" class="btn btn-primary-custom btn-get-in-touch">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm" action="#" method="POST" onsubmit="return submitForm(event)">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name *</label>
+        <input type="text" class="form-control" id="name" name="name" required placeholder="Your full name" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address *</label>
+        <input type="email" class="form-control" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+92 300 1234567" />
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message *</label>
+        <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Write your message here"></textarea>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary-custom">Send Message</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ittifaq Feeds Pvt Ltd. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS
+  (function() {
+    emailjs.init("GoLpCKczI7_3LS3IE"); // Replace with your public key from EmailJS
+  })();
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    // Collect the form data
+    const form = document.getElementById("contactForm");
+
+    emailjs.sendForm("service_mm01mbw", "template_1xle6nq", form)
+      .then(function(response) {
+        alert("Message sent successfully!");
+        form.reset();
+      }, function(error) {
+        alert("Failed to send message: " + error.text);
+      });
+
+    return false;
+  }
+</script>
+</body>
+</html>

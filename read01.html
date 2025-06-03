@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Ittifaq Feeds</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --primary-red:red;
+      --dark-bg: #121212;
+      --light-bg: #f9f9f9;
+      --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    }
+
+   body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: radial-gradient(circle, red 0%, black 100%);
+  color: white;
+}
+
+    /* Navbar */
+.navbar-custom {
+    background-color: #000; /* Dark background */
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .btn-get-in-touch {
+    color: #fff; /* White text for better contrast */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .btn-get-in-touch:hover {
+    color: var(--primary-red); /* Change to primary red on hover */
+}
+
+.navbar-custom .nav-link.active {
+    color: var(--primary-red); /* Active link color */
+}
+    /* Buttons */
+    .btn-primary-custom,
+    .btn-secondary-custom {
+      border-radius: 25px;
+      padding: 0.75rem 1.75rem;
+      font-weight: 600;
+      display: inline-block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary-custom {
+      background-color: var(--primary-red);
+      color: white;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: #c62828;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+    }
+
+    .btn-secondary-custom {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-secondary-custom:hover {
+      background-color: white;
+      color: #121212;
+      transform: translateY(-3px);
+    }
+
+ /* Hero Section */
+    .hero-section {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(to right, white, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      min-width: 160px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 57, 53, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary-red);
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 5px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Content Sections */
+    .section-title {
+      font-family: 'Raleway', sans-serif;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-red);
+      border-radius: 2px;
+    }
+
+    .content-section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .content-card {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(229, 57, 53, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      height: 100%;
+    }
+
+    .content-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      border-color: var(--primary-red);
+    }
+
+    .card-icon {
+      font-size: 3.5rem;
+      color: var(--primary-red);
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
+    }
+
+    .content-card:hover .card-icon {
+      transform: scale(1.1);
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .card-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0;
+    }
+
+    /* Commitment Grid */
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .commitment-item {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(229, 57, 53, 0.2);
+      backdrop-filter: blur(5px);
+    }
+
+    .commitment-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border-color: var(--primary-red);
+    }
+
+    .commitment-item i {
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .commitment-item:hover i {
+      transform: scale(1.2);
+    }
+
+    .commitment-item p {
+      font-weight: 600;
+      margin: 0;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    /* Image Gallery */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+    }
+
+    .gallery-item {
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      padding: 20px;
+      color: white;
+    }
+
+    .gallery-title {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo span:first-child {
+      color: var(--primary-red);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #222;
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      color: #777;
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #222;
+      width: 100%;
+    }
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-stats {
+        gap: 20px;
+      }
+      .stat-box {
+        min-width: 130px;
+        padding: 15px;
+      }
+      .stat-value {
+        font-size: 2rem;
+      }
+      .content-section {
+        padding: 60px 0;
+      }
+      .content-card {
+        padding: 30px;
+        margin-bottom: 30px;
+      }
+      .card-title {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+      .stat-box {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    /* Animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.8s;
+    }
+  </style>
+
+</style>
+    </head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom px-4 position-relative">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="index.html">
+        <span style="color: var(--primary-red);">ITTIFAQ</span><span class="text-white"> FEEDS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavCentered">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavCentered">
+        <ul class="navbar-nav navbar-nav-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <a href="contact.html" class="btn btn-primary-custom btn-get-in-touch">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">REDEFINING ANIMAL NUTRITION</h1>
+        <p class="hero-subtitle">Premium feed solutions for healthier livestock and thriving farms</p>
+        <a href="#about" class="btn btn-primary-custom">Discover Our Mission</a>
+        
+        <div class="hero-stats">
+          <div class="stat-box floating">
+            <div class="stat-value">20+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-box floating delay-1">
+            <div class="stat-value">95%</div>
+            <div class="stat-label">Farmer Satisfaction</div>
+          </div>
+          <div class="stat-box floating delay-2">
+            <div class="stat-value">50K+</div>
+            <div class="stat-label">Animals Fed Daily</div>
+          </div>
+          <div class="stat-box floating delay-3">
+            <div class="stat-value">15%</div>
+            <div class="stat-label">Avg. Yield Increase</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="content-section">
+    <div class="container">
+      <h2 class="section-title">Our Mission</h2>
+      
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="content-card">
+            <div class="card-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h3 class="card-title">Nutrition Excellence</h3>
+            <p class="card-text">
+              At ITTIFAQ FEEDS, we believe that strong, healthy animals are the foundation of a productive and profitable farm. 
+              That's why we're dedicated to redefining animal nutrition through science, innovation, and a deep understanding of modern agriculture.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+          <div class="content-card">
+            <div class="card-icon">
+              <i class="fas fa-flask"></i>
+            </div>
+            <h3 class="card-title">Quality & Innovation</h3>
+            <p class="card-text">
+              Our feed solutions are designed not just to meet nutritional standards, but to exceed expectations in performance and results.
+              Every product results from rigorous research, quality control, and premium raw materials — ensuring your animals get the best.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <img src="https://i.ytimg.com/vi/PZnuFbfId-Q/maxresdefault.jpg" alt="Feed Production">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Advanced Production</h4>
+            <p>State-of-the-art facilities</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://th.bing.com/th/id/OIP.RC6DY5DS-zzXoFCQRJKtkQHaE8?r=0&rs=1&pid=ImgDetMain" alt="Healthy Animals">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Healthy Livestock</h4>
+            <p>Optimal animal health</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://media.licdn.com/dms/image/D4E12AQF4oUof_yN2Cg/article-cover_image-shrink_720_1280/0/1721191555808?e=2147483647&v=beta&t=c-mjWzIBqjTdX7naszdqSKwXhQirB1QHYPvkidPSH5I" alt="Farm Success">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Farm Success</h4>
+            <p>Thriving agricultural businesses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commitment Section -->
+  <section class="content-section" style="background: rgba(0,0,0,0.4);">
+    <div class="container">
+      <h2 class="section-title">Our Commitment</h2>
+      
+      <div class="commitment-grid">
+        <div class="commitment-item">
+          <i class="fas fa-shield-alt"></i>
+          <p>Stronger Animals</p>
+        </div>
+        <div class="commitment-item">
+          <i class="fas fa-chart-line"></i>
+          <p>Better Growth Rates</p>
+        </div>
+        <div class="commitment-item">
+          <i class="fas fa-exchange-alt"></i>
+          <p>Improved Feed Conversion</p>
+        </div>
+        <div class="commitment-item">
+          <i class="fas fa-heartbeat"></i>
+          <p>Lower Mortality</p>
+        </div>
+        <div class="commitment-item">
+          <i class="fas fa-coins"></i>
+          <p>Higher Returns</p>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+          <div class="content-card">
+            <h3 class="card-title">Our Vision</h3>
+            <p class="card-text">
+              To be a trusted leader in the feed industry by delivering solutions that ensure animal health, 
+              increase farm yields, and contribute to global food security. We envision a world where every 
+              farmer has access to premium nutrition solutions.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+          <div class="content-card">
+            <h3 class="card-title">Why Choose Us</h3>
+            <ul class="card-text">
+              <li>Precision Nutrition for every livestock stage</li>
+              <li>Consistent Quality with strict quality checks</li>
+              <li>Innovation-Driven R&D and advanced solutions</li>
+              <li>Farmer-Focused guidance and support</li>
+              <li>Sustainability First in our processes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Simple animation for elements when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      document.querySelectorAll('.content-card, .commitment-item, .gallery-item').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span>ITTIFAQ</span><span> FEEDS</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="products.html">Products</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="copyright">
+          &copy; 2025 Ittifaq Feeds Pvt Ltd. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
