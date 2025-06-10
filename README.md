@@ -1,1 +1,0 @@
-# ittifaq-feeds-pvt-ltd
