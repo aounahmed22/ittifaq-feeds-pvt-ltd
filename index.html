@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Ittifaq Feeds</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+  <style>
+   :root {
+      --primary-red:red;
+      --dark-bg: #121212;
+      --light-bg: #f9f9f9;
+      --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    }
+
+ 
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: url('https://t3.ftcdn.net/jpg/03/22/68/66/360_F_322686690_FGS4GEosanesib73238v3vvYmU04SLpX.jpg')
+              no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+    /* Navbar */
+.navbar-custom {
+    background-color: #000; /* Dark background */
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .btn-get-in-touch {
+    color: #fff; /* White text for better contrast */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .btn-get-in-touch:hover {
+    color: var(--primary-red); /* Change to primary red on hover */
+}
+
+.navbar-custom .nav-link.active {
+    color: var(--primary-red); /* Active link color */
+}
+.logo-img {
+  height: 38px;
+  width: auto;
+}
+    /* Buttons */
+    .btn-primary-custom,
+    .btn-secondary-custom {
+      border-radius: 25px;
+      padding: 0.75rem 1.75rem;
+      font-weight: 600;
+      display: inline-block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      border: 2px solid transparent;
+    }
+    .btn-primary-custom {
+      background-color: red;
+      color: white;
+      border: none;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: #ffffff;
+      color: rgb(255, 0, 0);
+    }
+
+    /* Hero Section */
+    .hero {
+      color: white;
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      z-index: 0;
+    }
+
+    .tagline {
+      color: var(--primary-red);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 1.5rem 0;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 90%;
+    }
+
+    .hero-img {
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+      transform: perspective(1000px) rotateY(-5deg);
+      border: 5px solid rgba(255, 255, 255, 0.05);
+    }
+
+        /* Stats Section */
+        .hero-section {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-red);
+        }
+
+        .hero-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-box {
+            background-color: var(--primary-black);
+            border: 2px solid var(--primary-red);
+            padding: 2.2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(214, 100, 100, 0.1) 0%, rgba(230,0,0,0) 100%);
+            z-index: 0;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgb(255, 0, 0);
+        }
+
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* About Section */
+        .content-section {
+            padding: 6rem 0;
+            background-color: var(--primary-white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+        }
+
+        .content-card {
+            background-color: var(--primary-white);
+            border: 2px solid var(--primary-black);
+            padding: 2.5rem;
+            height: 100%;
+            position: relative;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 100%);
+            z-index: 0;
+        }
+
+        .content-card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-text {
+            color: var(--primary-black);
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: none;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02) translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 60%);
+    color: var(--primary-white);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(20%);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-red);
+    margin-bottom: 0.3rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+        /* Commitment Section */
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+
+        .commitment-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border: 2px solid var(--primary-black);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-item:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-8px);
+        }
+
+        .commitment-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 100%);
+            z-index: 0;
+        }
+
+        .commitment-item i {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .commitment-item p {
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .floating-card {
+            background-color: var(--primary-white);
+            border: 2px solid var(--primary-black);
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 100%);
+            z-index: 0;
+        }
+
+        .floating-card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-card h3 {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .floating-card ul {
+            padding-left: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .floating-card ul li {
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* CEO Section */
+        .ceo-section {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            padding: 6rem 0;
+        }
+
+        .ceo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .ceo-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .ceo-text {
+            flex: 1;
+        }
+
+        .ceo-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .ceo-text h2 span {
+            color: var(--primary-red);
+        }
+
+        .ceo-text p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .ceo-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .ceo-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border: 3px solid var(--primary-red);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        .ceo-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Client Section */
+        .client-section {
+            padding: 6rem 0;
+            background-color: var(--primary-white);
+        }
+
+        .client-card {
+            background-color: var(--primary-white);
+            border: 2px solid var(--primary-black);
+            padding: 2.5rem;
+            height: 100%;
+            position: relative;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .client-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 100%);
+            z-index: 0;
+        }
+
+        .client-card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .client-card strong {
+            color: var(--primary-red);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Section */
+    .contact-small {
+      padding: 4rem 0;
+      color: white;
+      text-align: center;
+    }
+
+    .contact-small h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-small p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1.8rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+      margin-top: auto; /* Push footer to the bottom */
+  width: 100%;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo span:first-child {
+      color: var(--primary-red);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #222;
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      color: #777;
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #222;
+      width: 100%;
+    }
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .delay-1 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-2 {
+            animation-delay: 1s;
+        }
+
+        .delay-3 {
+            animation-delay: 1.5s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .ceo-content {
+                flex-direction: column;
+            }
+            .ceo-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero-stats {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .section-title, .hero-title {
+                font-size: 2.2rem;
+            }
+            .navbar-nav {
+                padding-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            .hero-section {
+                padding: 4rem 0;
+            }
+            .content-section, .ceo-section, .client-section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom px-4 position-relative">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-3 d-flex align-items-center gap-2" href="index.html">
+           <img src="https://ik.imagekit.io/ucgjgfdlq/WhatsApp%20Image%202025-05-29%20at%201.47.39%20PM%20(1)%20(1).png?updatedAt=1749545819085" alt="Logo" class="logo-img" />
+      <span style="color: var(--primary-red);">ITTIFAQ</span><span class="text-white"> FEEDS</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavCentered">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavCentered">
+      <ul class="navbar-nav navbar-nav-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <a href="contact.html" class="btn btn-primary-custom btn-get-in-touch">Get in Touch</a>
+  </div>
+</nav>
+
+
+    <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <h5 class="tagline">We Are</h5>
+          <h1 class="fw-bold">
+            Pioneering the Future of Animal Nutrition For Healthier Livestock
+          </h1>
+          <p class="mt-4">
+            With a commitment to excellence, ITTIFAQ FEEDS provides high-quality feed products that enhance animal well-being and improve farm productivity. Through innovation and sustainable practices, we strive to revolutionize the feed industry for a healthier, more efficient agricultural future.
+          </p>
+          <div class="d-flex gap-3 mt-4 flex-wrap">
+            <a href="contact.html" class="btn btn-primary-custom">Contact us</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <img src="https://img.freepik.com/premium-photo/indoors-chicken-farm-chicken-feeding_109285-4580.jpg?w=996" alt="Chicken Feeding" class="hero-img img-fluid" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">REDEFINING ANIMAL NUTRITION</h1>
+                <p class="hero-subtitle">Premium feed solutions for healthier livestock and thriving farms</p>
+                <div class="hero-stats">
+                    <div class="stat-box floating">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-box floating delay-1">
+                        <div class="stat-value">95%</div>
+                        <div class="stat-label">Farmer Satisfaction</div>
+                    </div>
+                    <div class="stat-box floating delay-2">
+                        <div class="stat-value">50K+</div>
+                        <div class="stat-label">Animals Fed Daily</div>
+                    </div>
+                    <div class="stat-box floating delay-3">
+                        <div class="stat-value">15%</div>
+                        <div class="stat-label">Avg. Yield Increase</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="content-card">
+                        <div class="card-icon">
+                            <i class="bi bi-egg-fried"></i>
+                        </div>
+                        <h3 class="card-title">Nutrition Excellence</h3>
+                        <p class="card-text">
+                            At ITTIFAQ FEEDS, we believe that strong, healthy animals are the foundation of a productive and profitable farm. 
+                            That's why we're dedicated to redefining animal nutrition through science, innovation, and a deep understanding of modern agriculture.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="content-card">
+                        <div class="card-icon">
+                            <i class="bi bi-flower1"></i>
+                        </div>
+                        <h3 class="card-title">Quality & Innovation</h3>
+                        <p class="card-text">
+                            Our feed solutions are designed not just to meet nutritional standards, but to exceed expectations in performance and results.
+                            Every product results from rigorous research, quality control, and premium raw materials — ensuring your animals get the best.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://i.ytimg.com/vi/PZnuFbfId-Q/maxresdefault.jpg" alt="Feed Production">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Advanced Production</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.RC6DY5DS-zzXoFCQRJKtkQHaE8?r=0&rs=1&pid=ImgDetMain" alt="Healthy Animals">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Healthy Livestock</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://media.licdn.com/dms/image/D4E12AQF4oUof_yN2Cg/article-cover_image-shrink_720_1280/0/1721191555808?e=2147483647&v=beta&t=c-mjWzIBqjTdX7naszdqSKwXhQirB1QHYPvkidPSH5I" alt="Farm Success">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Farm Success</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section class="content-section">
+        <div class="container">
+            <h1 class="section-title text-center">Our Commitment</h1>
+
+            <div class="commitment-grid">
+                <div class="commitment-item">
+                    <i class="bi bi-shield-check"></i>
+                    <p>Stronger Animals</p>
+                </div>
+                <div class="commitment-item">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <p>Better Growth Rates</p>
+                </div>
+                <div class="commitment-item">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <p>Improved Feed Conversion</p>
+                </div>
+                <div class="commitment-item">
+                    <i class="bi bi-heart-pulse"></i>
+                    <p>Lower Mortality</p>
+                </div>
+                <div class="commitment-item">
+                    <i class="bi bi-currency-dollar"></i>
+                    <p>Higher Returns</p>
+                </div>
+            </div>
+
+            <div class="info-cards">
+                <div class="floating-card">
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="card-text">
+                        To be a trusted leader in the feed industry by delivering solutions that ensure animal health,
+                        increase farm yields, and contribute to global food security. We envision a world where every
+                        farmer has access to premium nutrition solutions.
+                    </p>
+                </div>
+                <div class="floating-card">
+                    <h3 class="card-title">Why Choose Us</h3>
+                    <ul class="card-text">
+                        <li>Precision Nutrition for every livestock stage</li>
+                        <li>Consistent Quality with strict quality checks</li>
+                        <li>Innovation-Driven R&D and advanced solutions</li>
+                        <li>Farmer-Focused guidance and support</li>
+                        <li>Sustainability First in our processes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section class="ceo-section">
+        <div class="ceo-container">
+            <div class="ceo-content">
+                <div class="ceo-text">
+                    <h2><span>GHULAM</span> MUHAMMAD</h2>
+                    <p>
+                        Welcome to Ittifaq Feeds, where we're committed to nourishing not only animals but also fostering strong relationships with our customers. As the CEO, I am honored to lead our dedicated team in delivering premium-quality feed products that prioritize the health and well-being of animals while upholding principles of sustainability and trust.
+                    </p>
+                    <p>
+                        At Ittifaq Feeds, we understand the critical role that nutrition plays in the growth and development of animals. That's why we go above and beyond to formulate feed products that are not only nutritious but also tailored to meet the specific needs of different animal species.
+                    </p>
+                    <div class="mt-4">
+                        <a href="about.html" class="btn btn-primary-custom">Learn More About Us</a>
+                    </div>
+                </div>
+                <div class="ceo-image">
+                    <img src="https://alrehmangroup.pk/wp-content/uploads/2025/05/ghulam-ahmed.jpg" alt="Ghulam Muhammad, CEO">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Section -->
+    <section class="client-section">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Clients Say</h2>
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="client-card">
+                        <p>"Ittifaq Feeds has truly improved the quality of our livestock. We've seen a 20% increase in productivity since switching to their products. Highly recommended!"</p>
+                        <strong>- Abdul Rehman, Poultry Farmer</strong>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="client-card">
+                        <p>"Excellent support and outstanding feed products. Our animals are healthier and more productive. Ittifaq is a trustworthy brand that delivers on its promises."</p>
+                        <strong>- Sara Khan, Dairy Farm Owner</strong>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="client-card">
+                        <p>"Our farm yield has improved tremendously after switching to Ittifaq. The technical support team is knowledgeable and always ready to help with feeding strategies."</p>
+                        <strong>- Faisal Mehmood, Livestock Producer</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Small Contact Section -->
+  <section class="contact-small">
+    <div class="container">
+      <h3>Ready to connect with us?</h3>
+      <p>We're here to answer your questions and provide the best support for your livestock nutrition needs.</p>
+      <a href="contact.html" class="btn btn-primary-custom">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span>ITTIFAQ</span><span> FEEDS</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="products.html">Products</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="copyright">
+          &copy; 2025 Ittifaq Feeds Pvt Ltd. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple animation for elements when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
